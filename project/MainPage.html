@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BTEC - Demo Menu (Bootstrap 3)</title>
+
+  <!-- Bootstrap 3 CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="MainPage.css">
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 col-xs-12 text-center-xs">
+          <div class="logo">
+            <img src="https://img.freepik.com/free-vector/supercar-logo-design-vector-illustration_47987-26527.jpg?semt=ais_hybrid&w=740&q=80" alt="Car Sales logo" class="img-responsive">
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-xs-12">
+          <form id="searchForm" class="search-form text-center" role="search">
+            <div class="input-group" style="max-width:520px; margin:0 auto;">
+              <input id="searchInput" type="text" class="form-control" placeholder="Search a Product">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Search</button>
+              </span>
+               <ul id="searchSuggestions" class="dropdown-menu" style="width:100%;"></ul>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-sm-3 col-xs-12 text-right user-area text-center-xs">
+          <button class="btn btn-Login"><a href="Login.html">Login</a></button>
+          <button class="btn btn-register"><a href="SignIn.html">Register</a></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main nav -->
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav nav-pills nav-justified">
+        <li role="presentation"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">All Products</a></li>
+        <li role="presentation"><a href="#">My Account</a></li>
+        <li role="presentation"><a href="Cart.html">Shopping Cart</a></li>
+        <li role="presentation"><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Carousel (Bootstrap 3) -->
+  <div id="promoCarousel" class="carousel slide" data-ride="carousel" style="margin-top:12px;">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#promoCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#promoCarousel" data-slide-to="1"></li>
+      <li data-target="#promoCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active text-center">
+        <img src="https://platform.cstatic-images.com/large/in/v2/62695326-4cb4-5cd0-9e86-b5ffe2f6bd46/ca20b9c9-33d7-4b4f-991d-057784bb8755/BXGIoFvJgBeVAFvXmIMkkDwGqx0.jpg" alt="Tesla Model 3" class="img-responsive center-block" style="max-height:360px; width:auto;">
+      </div>
+      <div class="item text-center">
+        <img src="https://cdn11.bigcommerce.com/s-wcxs2zskqb/images/stencil/1280x1280/products/1384/3653/fifth_wheel_covered_wagon2a__66515.1599477928.jpg?c=1" alt="Fifth Wheel Covered Wagon" class="img-responsive center-block" style="max-height:360px; width:auto;">
+      </div>
+      <div class="item text-center">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu8wRBVMUuGdbYIyV9VHixDwT_q41q5wgAXQ&s" alt="Ford Mustang GT" class="img-responsive center-block" style="max-height:360px; width:auto;">
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#promoCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#promoCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <!-- Layout: sidebar + content -->
+  <main class="container" style="margin-top:18px;">
+    <div class="row">
+      <!-- Sidebar -->
+      <aside class="col-md-3">
+        <h3 class="text-center" style="font-size:22px; margin:8px 0;">Categories</h3>
+        <ul class="list-group sidebar">
+          <li class="list-group-item">Sedan</li>
+          <li class="list-group-item">SUV</li>
+          <li class="list-group-item">Hatchback</li>
+          <li class="list-group-item">Convertible</li>
+          <li class="list-group-item">Coupe</li>
+        </ul>
+
+        <h3 class="text-center" style="font-size:22px; margin:8px 0;">Brands</h3>
+        <ul class="list-group sidebar">
+          <li class="list-group-item">Ford</li>
+          <li class="list-group-item">Toyota</li>
+          <li class="list-group-item">Chevrolet</li>
+          <li class="list-group-item">Honda</li>
+          <li class="list-group-item">Hyundai</li>
+          <li class="list-group-item">BMW</li>
+          <li class="list-group-item">Audi</li>
+          <li class="list-group-item">Lexus</li>
+        </ul>
+      </aside>
+
+      <!-- Main content -->
+      <section class="col-md-9">
+        <div class="content-wrap">
+          <div class="row">
+
+            <!-- 12 products: 3 per row on md, 2 per row on sm -->
+            <div class="col-sm-6 col-md-4">
+              <div class="product-thumb">
+                <div class="product-img">
+                  <img src="https://platform.cstatic-images.com/large/in/v2/62695326-4cb4-5cd0-9e86-b5ffe2f6bd46/ca20b9c9-33d7-4b4f-991d-057784bb8755/BXGIoFvJgBeVAFvXmIMkkDwGqx0.jpg" alt="Tesla Model 3" class="img-responsive">
+                </div>
+                <h4 class="product-title">Tesla Model 3</h4>
+                <p class="price">Price: $22,987</p>
+                <div class="product-actions">
+                  <a href="ProductDetail.html?id=tesla-model-3">Details</a>
+                  <button class="btn btn-xs btn-default add-to-cart"
+                          data-id="tesla-model-3"
+                          data-title="Tesla Model 3"
+                          data-price="$22,987"
+                          data-img="https://platform.cstatic-images.com/large/in/v2/62695326-4cb4-5cd0-9e86-b5ffe2f6bd46/ca20b9c9-33d7-4b4f-991d-057784bb8755/BXGIoFvJgBeVAFvXmIMkkDwGqx0.jpg">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+              <div class="product-thumb">
+                <div class="product-img">
+                  <img src="https://platform.cstatic-images.com/medium/in/v2/stock_photos/31dc047a-6ce7-4bcf-b4de-96faef318830/97bcb6e5-913a-4659-8664-1b2a558685c4.png" alt="Toyota 4Runner" class="img-responsive">
+                </div>
+                <h4 class="product-title">Toyota 4Runner</h4>
+                <p class="price">Price: $23,490</p>
+                <div class="product-actions">
+                  <a href="ProductDetail.html?id=toyota-4runner">Details</a>
+                  <button class="btn btn-xs btn-default add-to-cart"
+                          data-id="toyota-4runner"
+                          data-title="Toyota 4Runner"
+                          data-price="$23,490"
+                          data-img="https://platform.cstatic-images.com/medium/in/v2/stock_photos/31dc047a-6ce7-4bcf-b4de-96faef318830/97bcb6e5-913a-4659-8664-1b2a558685c4.png"
+                          >Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+              <div class="product-thumb">
+                <div class="product-img">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu8wRBVMUuGdbYIyV9VHixDwT_q41q5wgAXQ&s" alt="Ford Mustang GT" class="img-responsive">
+                </div>
+                <h4 class="product-title">Ford Mustang GT Premium</h4>
+                <p class="price">Price: $27,855</p>
+                <div class="product-actions">
+                  <a href="ProductDetail.html?id=Ford-Mustang-GT-Premium">Details</a>
+                  <button class="btn btn-xs btn-default add-to-cart"
+                          data-id="Ford-Mustang-GT-Premium"
+                          data-title="Ford Mustang GT Premium"
+                          data-price="$27,855"
+                          data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu8wRBVMUuGdbYIyV9VHixDwT_q41q5wgAXQ&s"
+                          >Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- clearfix for medium/large screens after 3 cols -->
+            <div class="clearfix visible-md-block visible-lg-block"></div>
+
+            <div class="col-sm-6 col-md-4">
+              <div class="product-thumb">
+                <div class="product-img">
+                  <img src="https://platform.cstatic-images.com/xlarge/in/v2/7e0e9228-6f8b-5a21-851f-aa44b3f6630a/a04fd5e4-bd7f-41b5-9f2e-d6a68a942ee8/bJn7uruBriOCLr5VHA0Cz2WQ3LU.jpg" alt="BMW M4" class="img-responsive">
+                </div>
+                <h4 class="product-title">BMW M4 Competition xDrive</h4>
+                <p class="price">Price: $94,800</p>
+                <div class="product-actions">
+                  <a href="ProductDetail.html?id=BMW-M4-Competition-xDrive">Details</a>
+                  <button class="btn btn-xs btn-default add-to-cart"
+                          data-id="BMW-M4-Competition-xDrive"
+                          data-title="BMW M4 Competition xDrive"
+                          data-price="$94,800"
+                          data-img="https://platform.cstatic-images.com/xlarge/in/v2/7e0e9228-6f8b-5a21-851f-aa44b3f6630a/a04fd5e4-bd7f-41b5-9f2e-d6a68a942ee8/bJn7uruBriOCLr5VHA0Cz2WQ3LU.jpg"
+                          >Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+              <div class="product-thumb">
+                <div class="product-img">
+                  <img src="https://platform.cstatic-images.com/large/in/v2/5cecb594-6823-5a5a-a596-640030a05b46/071475da-e40c-4386-b989-e3fd2e8de733/VSZ-ciLyRu89-HWHCe6Myx4yJjE.jpg" alt="Scion xB" class="img-responsive">
+                </div>
+                <h4 class="product-title">Scion xB 686 Parklan Edition</h4>
+                <p class="price">Price: $9,945</p>
+                <div class="product-actions">
+                  <a href="ProductDetail.html?id=Scion-xB-686-Parklan-Edition">Details</a>
+                  <button class="btn btn-xs btn-default add-to-cart"
+                          data-id="Scion-xB-686-Parklan-Edition"
+                          data-title="Scion xB 686 Parklan Edition"
+                          data-price="$9,945"
+                          data-img="https://platform.cstatic-images.com/large/in/v2/5cecb594-6823-5a5a-a596-640030a05b46/071475da-e40c-4386-b989-e3fd2e8de733/VSZ-ciLyRu89-HWHCe6Myx4yJjE.jpg"
+                          >Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+              <div class="product-thumb">
+                <div class="product-img">
+                  <img src="https://cdn11.bigcommerce.com/s-wcxs2zskqb/images/stencil/1280x1280/products/1384/3653/fifth_wheel_covered_wagon2a__66515.1599477928.jpg?c=1" alt="Wagon" class="img-responsive">
+                </div>
+                <h4 class="product-title">Wagon</h4>
+                <p class="price">Price: 300 gold piece</p>
+                <div class="product-actions">
+                  <a href="ProductDetail.html?id=Wagon">Details</a>
+                  <button class="btn btn-xs btn-default add-to-cart"
+                          data-id="Wagon"
+                          data-title="Wagon"
+                          data-price="300 gold piece"
+                          data-img="https://cdn11.bigcommerce.com/s-wcxs2zskqb/images/stencil/1280x1280/products/1384/3653/fifth_wheel_covered_wagon2a__66515.1599477928.jpg?c=1"
+                          >Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix visible-md-block visible-lg-block"></div>
+
+            <div class="col-sm-6 col-md-4">
+              <div class="product-thumb">
+                <div class="product-img">
+                  <img src="https://platform.cstatic-images.com/xlarge/in/v2/745417fd-69bc-524d-93df-4c57cbd67086/4c30e6d1-9922-4a8f-aa01-2030588a18bc/tR_Gcp6gjDoM9ogVQVxO_kX6xEM.jpg" alt="2015 Scion xB" class="img-responsive">
+                </div>
+                <h4 class="product-title">2015 Scion xB</h4>
+                <p class="price">Price: $7,997</p>
+                <div class="product-actions">
+                  <a href="ProductDetail.html?id=2015-Scion-xB">Details</a>
+                  <button class="btn btn-xs btn-default add-to-cart"
+                          data-id="2015-Scion-xB"
+                          data-title="2015 Scion xB"
+                          data-price="$7,997"
+                          data-img="https://platform.cstatic-images.com/xlarge/in/v2/745417fd-69bc-524d-93df-4c57cbd67086/4c30e6d1-9922-4a8f-aa01-2030588a18bc/tR_Gcp6gjDoM9ogVQVxO_kX6xEM.jpg"
+                          >Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+              <div class="product-thumb">
+                <div class="product-img">
+                  <img src="https://platform.cstatic-images.com/large/in/v2/94ca39c7-ade2-5c96-bb7d-c6faad891eee/18a54010-2b4a-44fb-8fac-23c7c84a5091/_g0L4aUy7KRGL1UrfItTmf4WRGc.jpg" alt="2024 Audi RS 6 Avant" class="img-responsive">
+                </div>
+                <h4 class="product-title">2024 Audi RS 6 Avant 4.0T</h4>
+                <p class="price">Price: $139,800</p>
+                <div class="product-actions">
+                  <a href="ProductDetail.html?id=2024-Audi-RS-6-Avant-4.0T">Details</a>
+                  <button class="btn btn-xs btn-default add-to-cart"
+                          data-id="2024-Audi-RS-6-Avant-4.0T"
+                          data-title="2024 Audi RS 6 Avant 4.0T"
+                          data-price="$139,800"
+                          data-img="https://platform.cstatic-images.com/large/in/v2/94ca39c7-ade2-5c96-bb7d-c6faad891eee/18a54010-2b4a-44fb-8fac-23c7c84a5091/_g0L4aUy7KRGL1UrfItTmf4WRGc.jpg"
+                          >Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+              <div class="product-thumb">
+                <div class="product-img">
+                  <img src="https://platform.cstatic-images.com/xlarge/in/v2/ef2ea744-4ba2-57e3-b6f8-7163ca8adf3e/c1afe1a3-2abf-4ecb-b659-e8cfde2d6f9f/2w6Lxy17kr9dhL_QggnRTLm-I4U.jpg" alt="2013 Nissan Altima" class="img-responsive">
+                </div>
+                <h4 class="product-title">2013 Nissan Altima 2.5 S</h4>
+                <p class="price">Price: $11,950</p>
+                <div class="product-actions">
+                  <a href="ProductDetail.html?id=2013-Nissan-Altima-2.5-S">Details</a>
+                  <button class="btn btn-xs btn-default add-to-cart"
+                          data-id="2013-Nissan-Altima-2.5-S"
+                          data-title="2013 Nissan Altima 2.5 S"
+                          data-price="$11,950"
+                          data-img="https://platform.cstatic-images.com/xlarge/in/v2/ef2ea744-4ba2-57e3-b6f8-7163ca8adf3e/c1afe1a3-2abf-4ecb-b659-e8cfde2d6f9f/2w6Lxy17kr9dhL_QggnRTLm-I4U.jpg"
+                          >Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix visible-md-block visible-lg-block"></div>
+
+            <!-- last row (3 items) to reach 12 total -->
+            <div class="col-sm-6 col-md-4">
+              <div class="product-thumb">
+                <div class="product-img">
+                  <img src="https://platform.cstatic-images.com/xlarge/in/v2/8b813274-2332-45f1-8c14-a552fc07cc28/15468fed-7cce-4dc2-9335-6022959b52c6/XGQyyj-Jg-gjvPwYrknyW5DyRQY.jpg" alt="2018 Volkswagen Atlas" class="img-responsive">
+                </div>
+                <h4 class="product-title">2018 Volkswagen Atlas 2.0T SE</h4>
+                <p class="price">Price: $12,490</p>
+                <div class="product-actions">
+                  <a href="ProductDetail.html?id=2018-Volkswagen-Atlas-2.0T-SE">Details</a>
+                  <button class="btn btn-xs btn-default add-to-cart"
+                          data-id="2018-Volkswagen-Atlas-2.0T-SE"
+                          data-title="2018 Volkswagen Atlas 2.0T SE"
+                          data-price="$12,490"
+                          data-img="https://platform.cstatic-images.com/xlarge/in/v2/8b813274-2332-45f1-8c14-a552fc07cc28/15468fed-7cce-4dc2-9335-6022959b52c6/XGQyyj-Jg-gjvPwYrknyW5DyRQY.jpg"
+                          >Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+              <div class="product-thumb">
+                <div class="product-img">
+                  <img src="https://platform.cstatic-images.com/xlarge/in/v2/9e4ac7d8-d509-5d11-9812-ef6042f39161/2d987f7f-7373-4fa1-9340-6f28fd3d4487/1VPkjqxdepbMLnOUPqfd46H1X8U.jpg" alt="2017 RAM 1500" class="img-responsive">
+                </div>
+                <h4 class="product-title">2017 RAM 1500 Tradesman/Express</h4>
+                <p class="price">Price: $14,785</p>
+                <div class="product-actions">
+                  <a href="ProductDetail.html?id=2017-RAM-1500-Tradesman-Express">Details</a>
+                 <button class="btn btn-xs btn-default add-to-cart"
+                          data-id="2017-RAM-1500-Tradesman-Express"
+                          data-title="2017 RAM 1500 Tradesman/Express"
+                          data-price="$14,785"
+                          data-img="https://platform.cstatic-images.com/xlarge/in/v2/9e4ac7d8-d509-5d11-9812-ef6042f39161/2d987f7f-7373-4fa1-9340-6f28fd3d4487/1VPkjqxdepbMLnOUPqfd46H1X8U.jpg"
+                          >Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+              <div class="product-thumb">
+                <div class="product-img">
+                  <img src="https://platform.cstatic-images.com/xlarge/in/v2/9fa055cb-d8e2-5275-85fb-9ef5deae9590/2f66af1f-85dc-4a53-a9a9-41b843a60bed/wyclq8VExk6LB7_ncVhRaEiZdhM.jpg" alt="2015 Chevrolet Silverado" class="img-responsive">
+                </div>
+                <h4 class="product-title">2015 Chevrolet Silverado 1500 WT</h4>
+                <p class="price">Price: $9,999</p>
+                <div class="product-actions">
+                  <a href="ProductDetail.html?id=2015-Chevrolet-Silverado-1500 WT">Details</a>
+                 <button class="btn btn-xs btn-default add-to-cart"
+                          data-id="2015-Chevrolet-Silverado-1500 WT"
+                          data-title="2015 Chevrolet Silverado 1500 WT"
+                          data-price="$9,999"
+                          data-img="https://platform.cstatic-images.com/xlarge/in/v2/9fa055cb-d8e2-5275-85fb-9ef5deae9590/2f66af1f-85dc-4a53-a9a9-41b843a60bed/wyclq8VExk6LB7_ncVhRaEiZdhM.jpg"
+                          >Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>&copy; 2024 by BTEC. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <!-- Modal -->
+  <div id="cartModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Shopping Cart</h4>
+        </div>
+        <div class="modal-body">
+          <p>Success! Item added to cart.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // show username/profile in top-right when a user is stored (from SignIn)
+    document.addEventListener('DOMContentLoaded', function () {
+      function escapeHtml(str) {
+        return String(str || '').replace(/[&<>"']/g, function (m) {
+          return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+        });
+      }
+
+      var raw = null;
+      try { raw = localStorage.getItem('btec_user'); } catch (e) { raw = null; }
+      var user = null;
+      if (raw) {
+        try { user = JSON.parse(raw); } catch (e) { user = null; }
+      }
+
+      var userArea = document.querySelector('.user-area');
+      if (!userArea) return;
+
+      if (user && user.username) {
+        // Replace login/register with cart + user dropdown
+        var name = escapeHtml(user.username);
+        userArea.innerHTML = ''
+          + '<div class="dropdown" style="display:inline-block; margin-left:6px;">'
+          +   '<button class="btn btn-default dropdown-toggle" type="button" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'
+          +     '<span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' + name + ' <span class="caret"></span>'
+          +   '</button>'
+          +   '<ul class="dropdown-menu" role="menu" aria-labelledby="userMenu" style="min-width:140px;">'
+          +     '<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Profile</a></li>'
+          +     '<li role="presentation"><a role="menuitem" tabindex="-1" href="#">My Account</a></li>'
+          +     '<li class="divider"></li>'
+          +     '<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="logoutLink">Logout</a></li>'
+          +   '</ul>'
+          + '</div>';
+
+        var logoutLink = document.getElementById('logoutLink');
+        if (logoutLink) {
+          logoutLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            try { localStorage.removeItem('btec_user'); } catch (err) {}
+            // after logout return to Login page (or reload to show login/register)
+            window.location.href = 'Login.html';
+          });
+        }
+      } else {
+        // no user: leave existing buttons (no change)
+      }
+    });
+
+    // Product search: case-insensitive, token matching (all tokens must appear in title)
+    (function () {
+      var form = document.getElementById('searchForm');
+      var input = document.getElementById('searchInput');
+      if (!form || !input) return;
+
+      // create "no results" message container inside content-wrap
+      var contentWrap = document.querySelector('.content-wrap');
+      var noResults = document.getElementById('searchNoResults');
+      if (!noResults && contentWrap) {
+        noResults = document.createElement('div');
+        noResults.id = 'searchNoResults';
+        noResults.style.display = 'none';
+        noResults.style.textAlign = 'center';
+        noResults.style.padding = '18px';
+        noResults.style.color = '#555';
+        noResults.innerText = 'No products match your search.';
+        contentWrap.insertBefore(noResults, contentWrap.firstChild);
+      }
+
+      function getColumns() {
+        // select all product column wrappers (assumes structure: .col-.. > .product-thumb)
+        return Array.from(document.querySelectorAll('.product-thumb')).map(function(pt){
+          return { thumb: pt, col: pt.parentElement };
+        });
+      }
+
+      function searchAndShow(q) {
+        q = (q || '').trim().toLowerCase();
+        var cols = getColumns();
+        if (!q) {
+          cols.forEach(function(item){ item.col.style.display = ''; });
+          if (noResults) noResults.style.display = 'none';
+          return;
+        }
+        var tokens = q.split(/\s+/).filter(Boolean);
+        var shown = 0;
+        cols.forEach(function(item){
+          var titleEl = item.thumb.querySelector('.product-title');
+          var title = titleEl ? titleEl.textContent.toLowerCase() : item.thumb.textContent.toLowerCase();
+          var ok = tokens.every(function(t){ return title.indexOf(t) !== -1; });
+          item.col.style.display = ok ? '' : 'none';
+          if (ok) shown++;
+        });
+        if (noResults) noResults.style.display = (shown === 0) ? '' : 'none';
+      }
+
+      // on submit (search button / enter)
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        searchAndShow(input.value);
+      });
+
+      // optional: live search as user types (debounced)
+      var timer = null;
+      input.addEventListener('input', function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () { searchAndShow(input.value); }, 180);
+      });
+    })();
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', function () {
+          let item = {
+            id: this.dataset.id,
+            title: this.dataset.title,
+            price: this.dataset.price,
+            img: this.dataset.img
+          };
+      let cart = JSON.parse(localStorage.getItem('btec_cart') || '[]');
+      cart.push(item);
+      localStorage.setItem('btec_cart', JSON.stringify(cart));
+      alert('Added to cart!');
+    });
+  });
+});
+  </script>
+
+  <!-- jQuery and Bootstrap 3 JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

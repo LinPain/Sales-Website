@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Member Login</h2>
+        <form id="loginForm" novalidate>
+            <div class="form-group">
+                <label for="login_username">Username</label>
+                <input type="text" id="login_username" placeholder="Enter your username">
+                <span class="error" id="login_username_error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="login_password">Password</label>
+                <input type="password" id="login_password" placeholder="Enter your password">
+                <span class="error" id="login_password_error"></span>
+            </div>
+
+            <div class="form-group button">
+                <button type="submit" id="loginBtn">Login</button>
+                <button type="button" id="gotoSignIn">Sign In</button>
+                <button type="button" id="reset">Reset</button>
+            </div>
+
+            <div style="margin-top:12px; text-align:center;">
+                <a href="MainPage.html">Back to Home</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('loginForm');
+        const userField = document.getElementById('login_username');
+        const passField = document.getElementById('login_password');
+        const userError = document.getElementById('login_username_error');
+        const passError = document.getElementById('login_password_error');
+        const gotoSignIn = document.getElementById('gotoSignIn');
+        const resetBtn = document.getElementById('reset');
+
+        // prefill username if a registered user exists
+        let saved = null;
+        try {
+            saved = JSON.parse(localStorage.getItem('btec_user'));
+            if (saved && saved.username) userField.value = saved.username;
+        } catch (e) {
+            saved = null;
+        }
+
+        gotoSignIn.addEventListener('click', () => {
+            window.location.href = 'SignIn.html';
+        });
+
+        resetBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            userField.value = '';
+            passField.value = '';
+            userError.textContent = '';
+            passError.textContent = '';
+        });
+
+        function setError(el, msg) { if (el) el.textContent = msg; }
+        function clearError(el) { if (el) el.textContent = ''; }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearError(userError);
+            clearError(passError);
+
+            const u = userField.value.trim();
+            const p = passField.value;
+
+            if (!u) {
+                setError(userError, 'Please enter username.');
+                userField.focus();
+                return;
+            }
+            if (!p) {
+                setError(passError, 'Please enter password.');
+                passField.focus();
+                return;
+            }
+
+            if (!saved) {
+                setError(userError, 'No registered user found. Please sign in first.');
+                return;
+            }
+
+            if (u === saved.username && p === saved.password) {
+                // success: redirect to main page
+                window.location.href = 'MainPage.html';
+            } else {
+                setError(passError, 'Username or password incorrect.');
+                passField.focus();
+            }
+        });
+    });
+    </script>
+</body>
+</html>

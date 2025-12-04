@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ProductDetail.css">
+</head>
+<body>
+<div class="container detail-wrap">
+  <div class="row">
+    <!-- Product Image -->
+    <div class="col-md-6">
+      <img id="img" src="" alt="" class="img-responsive product-img">
+    </div>
+
+    <!-- Product Info -->
+    <div class="col-md-6">
+      <div class="product-header">
+        <h2 id="title"></h2>
+      </div>
+      <p id="price" class="price"></p>
+      <p id="desc"></p>
+      <button id="addToCartBtn" class="btn btn-primary">🛒 Add to Cart</button>
+      <a href="MainPage.html" class="btn btn-default">⬅ Back to Products</a>
+    </div>
+  </div>
+</div>
+
+    <script>
+  const products = {
+    "tesla-model-3": {
+      title: "Tesla Model 3",
+      price: "$22,987",
+      img: "https://platform.cstatic-images.com/large/in/v2/62695326-4cb4-5cd0-9e86-b5ffe2f6bd46/ca20b9c9-33d7-4b4f-991d-057784bb8755/BXGIoFvJgBeVAFvXmIMkkDwGqx0.jpg",
+      desc: "All-electric sedan with autopilot."
+    },
+    "toyota-4runner": {
+      title: "Toyota 4Runner",
+      price: "$23,490",
+      img: "https://platform.cstatic-images.com/medium/in/v2/stock_photos/31dc047a-6ce7-4bcf-b4de-96faef318830/97bcb6e5-913a-4659-8664-1b2a558685c4.png",
+      desc: "Durable SUV built for adventure."
+    },
+    "Ford-Mustang-GT-Premium": {
+      title: "Ford Mustang GT Premium",
+      price: "$27,855",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu8wRBVMUuGdbYIyV9VHixDwT_q41q5wgAXQ&s",
+      desc: "High-performance sports car with sleek design."
+    },
+    "BMW-M4-Competition-xDrive": {
+      title: "BMW M4 Competition xDrive",
+      price: "$94,800",
+      img: "https://platform.cstatic-images.com/xlarge/in/v2/7e0e9228-6f8b-5a21-851f-aa44b3f6630a/a04fd5e4-bd7f-41b5-9f2e-d6a68a942ee8/bJn7uruBriOCLr5VHA0Cz2WQ3LU.jpg",
+      desc: "Luxury sports coupe with powerful engine."
+    },
+    "Scion-xB-686-Parklan-Edition": {
+      title: "Scion xB 686 Parklan Edition",
+      price: "$23,490",
+      img: "https://platform.cstatic-images.com/large/in/v2/5cecb594-6823-5a5a-a596-640030a05b46/071475da-e40c-4386-b989-e3fd2e8de733/VSZ-ciLyRu89-HWHCe6Myx4yJjE.jpg",
+      desc: "Compact car with unique styling."
+    },
+    "2024-Audi-RS-6-Avant-4.0T": {
+      title: "2024 Audi RS 6 Avant 4.0T",
+      price: "$139,800",
+      img: "https://platform.cstatic-images.com/large/in/v2/94ca39c7-ade2-5c96-bb7d-c6faad891eee/18a54010-2b4a-44fb-8fac-23c7c84a5091/_g0L4aUy7KRGL1UrfItTmf4WRGc.jpg",
+      desc: "A very fast Car with luxurious features."
+    },
+    "Wagon": {
+      title: "Wagon",
+      price: "300 gold pieces",
+      img: "https://cdn11.bigcommerce.com/s-wcxs2zskqb/images/stencil/1280x1280/products/1384/3653/fifth_wheel_covered_wagon2a__66515.1599477928.jpg?c=1",
+      desc: "Come with 2 horses."
+    },
+    "2015-Scion-xB": {
+      title: "2015 Scion xB",
+      price: "$23,490",
+      img: "https://platform.cstatic-images.com/xlarge/in/v2/745417fd-69bc-524d-93df-4c57cbd67086/4c30e6d1-9922-4a8f-aa01-2030588a18bc/tR_Gcp6gjDoM9ogVQVxO_kX6xEM.jpg",
+      desc: "Compact car with unique styling."
+    },
+    "2013-Nissan-Altima-2.5-S": {
+      title: "2013 Nissan Altima 2.5 S",
+      price: "$11,950",
+      img: "https://platform.cstatic-images.com/xlarge/in/v2/ef2ea744-4ba2-57e3-b6f8-7163ca8adf3e/c1afe1a3-2abf-4ecb-b659-e8cfde2d6f9f/2w6Lxy17kr9dhL_QggnRTLm-I4U.jpg",
+      desc: "Midsize sedan with comfortable interior."
+    },
+    "2018-Volkswagen-Atlas-2.0T-SE": {
+      title: "2018 Volkswagen Atlas 2.0T SE",
+      price: "$12,490",
+      img: "https://platform.cstatic-images.com/xlarge/in/v2/8b813274-2332-45f1-8c14-a552fc07cc28/15468fed-7cce-4dc2-9335-6022959b52c6/XGQyyj-Jg-gjvPwYrknyW5DyRQY.jpg",
+      desc: "Spacious SUV with advanced safety features."
+    },
+    "2017-RAM-1500-Tradesman-Express": {
+      title: "2017 RAM 1500 Tradesman/Express",
+      price: "$25,900",
+      img: "https://platform.cstatic-images.com/xlarge/in/v2/9e4ac7d8-d509-5d11-9812-ef6042f39161/2d987f7f-7373-4fa1-9340-6f28fd3d4487/1VPkjqxdepbMLnOUPqfd46H1X8U.jpg",
+      desc: "Rugged pickup truck with impressive towing capacity."
+    },
+    "2015-Chevrolet-Silverado-1500 WT": {
+      title: "2015 Chevrolet Silverado 1500 WT",
+      price: "$9,999",
+      img: "https://platform.cstatic-images.com/xlarge/in/v2/9fa055cb-d8e2-5275-85fb-9ef5deae9590/2f66af1f-85dc-4a53-a9a9-41b843a60bed/wyclq8VExk6LB7_ncVhRaEiZdhM.jpg",
+      desc: "Reliable full-size pickup truck with strong performance."
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const product = products[id];
+
+  if (product) {
+    document.getElementById("title").textContent = product.title;
+    document.getElementById("price").textContent = product.price;
+    document.getElementById("img").src = product.img;
+    document.getElementById("desc").textContent = product.desc;
+      document.getElementById("addToCartBtn").addEventListener("click", function () {
+    let item = {
+      id: id,
+      title: product.title,
+      price: product.price,
+      img: product.img
+    };
+    let cart = JSON.parse(localStorage.getItem('btec_cart') || '[]');
+    cart.push(item);
+    localStorage.setItem('btec_cart', JSON.stringify(cart));
+    alert('Added to cart!');
+  });
+} else {
+    document.querySelector(".detail-wrap").innerHTML = "<p>Product not found.</p>";
+  }
+</script>
+</body>
+</html>
